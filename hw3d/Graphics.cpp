@@ -124,7 +124,7 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 		} col;
 	};
 
-	// create vertex buffer (1 2d triangle at center of screen)
+	// create vertex buffer (1 3d cube  at center of screen)
 	Vertex vertices[] =
 	{
 		{-1.0f,-1.0f,-1.0f,255,0,0},
@@ -190,7 +190,7 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 	const ConstantBuffer cb = {
 		{
 			dx::XMMatrixTranspose(dx::XMMatrixRotationZ(angle)*
-								 dx::XMMatrixScaling(3.0f / 4.0f,1.0f,1.0f) *
+								dx::XMMatrixRotationX(angle)*
 								dx::XMMatrixTranslation(x,y,4.0f) *
 								dx::XMMatrixPerspectiveLH(1.0f,3.0f/4.0f,0.5f,10.0f)
 							)
@@ -238,8 +238,8 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 	wrl::ComPtr<ID3D11InputLayout> pInputLayout;
 	const D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
-		{ "Position",0,DXGI_FORMAT_R32G32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0 },
-		{ "Color",0,DXGI_FORMAT_R8G8B8A8_UNORM,0,8u,D3D11_INPUT_PER_VERTEX_DATA,0 },
+		{ "Position",0,DXGI_FORMAT_R32G32B32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0 },
+		{ "Color",0,DXGI_FORMAT_R8G8B8A8_UNORM,0,12u,D3D11_INPUT_PER_VERTEX_DATA,0 },
 	};
 	GFX_THROW_INFO( pDevice->CreateInputLayout(
 		ied,(UINT)std::size( ied ),
