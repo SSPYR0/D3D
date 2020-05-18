@@ -1,2 +1,2 @@
-# D3D
-learning directx 11 
+# Nova
+A 3D engine using DirectX 11 
