@@ -113,31 +113,21 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 			float y;
 			float z;
 		}pos;
-		
-		struct 
-		{
-			unsigned char r;
-			unsigned char g;
-			unsigned char b;
-			unsigned char a;
-
-		} col;
 	};
 
 	// create vertex buffer (1 3d cube  at center of screen)
 	Vertex vertices[] =
 	{
-		{-1.0f,-1.0f,-1.0f,255,0,0},
-		{1.0f,-1.0f,-1.0f,0,255,0},
-		{-1.0f,1.0f,-1.0f,0,0,255},
-		{1.0f,1.0f,-1.0f,255,255,0},
-		{-1.0f,-1.0f,1.0f,255,0,255},
-		{1.0f,-1.0f,1.0f,0,255,255},
-		{-1.0f,1.0f,1.0f,0,0,0},
-		{1.0f,1.0f,1.0f,255,255,255},
+		{-1.0f,-1.0f,-1.0},
+		{1.0f,-1.0f,-1.0f},
+		{-1.0f,1.0f,-1.0f},
+		{1.0f,1.0f,-1.0f},
+		{-1.0f,-1.0f,1.0f},
+		{1.0f,-1.0f,1.0f},
+		{-1.0f,1.0f,1.0f},
+		{1.0f,1.0f,1.0f},
 
 	};
-	vertices[0].col.g = 255;
 	wrl::ComPtr<ID3D11Buffer> pVertexBuffer;
 	D3D11_BUFFER_DESC bd = {};
 	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
@@ -215,6 +205,37 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 	//bind constant buffer
 	pContext->VSSetConstantBuffers(0u, 1, pConstantBuffer.GetAddressOf());
 
+	struct ConstantBuffer2 {
+		struct {
+			float r, g, b, a;
+		}faceColors[6];
+	};
+
+	const ConstantBuffer2 cb2 = {
+		{
+			{1.0f,0.0f,1.0f},
+			{1.0f,0.0f,0.0f},
+			{0.0f,1.0f,0.0f},
+			{0.0f,0.0f,1.0f},
+			{1.0f,1.0f,0.0f},
+			{0.0f,1.0f,1.0f},
+		}
+	};
+
+	wrl::ComPtr<ID3D11Buffer> pConstantBuffer2;
+	D3D11_BUFFER_DESC cbd2 = {};
+	cbd2.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	cbd2.Usage = D3D11_USAGE_DEFAULT;
+	cbd2.CPUAccessFlags = 0u;
+	cbd2.MiscFlags = 0u;
+	cbd2.ByteWidth = sizeof(cb2);
+	cbd2.StructureByteStride = 0u;
+	D3D11_SUBRESOURCE_DATA csd2 = {};
+	csd2.pSysMem = &cb2;
+	GFX_THROW_INFO(pDevice->CreateBuffer(&cbd2, &csd2, &pConstantBuffer2));
+
+	pContext->PSSetConstantBuffers(0u, 1u, pConstantBuffer2.GetAddressOf());
+
 	// create pixel shader
 	wrl::ComPtr<ID3D11PixelShader> pPixelShader;
 	wrl::ComPtr<ID3DBlob> pBlob;
@@ -239,7 +260,6 @@ void Graphics::DrawTestTriangle(float angle, float x, float y)
 	const D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
 		{ "Position",0,DXGI_FORMAT_R32G32B32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0 },
-		{ "Color",0,DXGI_FORMAT_R8G8B8A8_UNORM,0,12u,D3D11_INPUT_PER_VERTEX_DATA,0 },
 	};
 	GFX_THROW_INFO( pDevice->CreateInputLayout(
 		ied,(UINT)std::size( ied ),
