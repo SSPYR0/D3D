@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Bindable">
       <UniqueIdentifier>{c52bb058-a0e7-48af-90f2-b68613b70a1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Drawable">
+      <UniqueIdentifier>{d9811de9-2fee-4d86-9ca9-c99721428572}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -67,6 +70,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bindable.cpp">
+      <Filter>Source Files\Bindable</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawable.cpp">
+      <Filter>Source Files\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBuffer.cpp">
       <Filter>Source Files\Bindable</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,6 +123,12 @@
       <Filter>Header Files\Macros</Filter>
     </ClInclude>
     <ClInclude Include="Bindable.h">
+      <Filter>Header Files\Bindable</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>Header Files\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
       <Filter>Header Files\Bindable</Filter>
     </ClInclude>
   </ItemGroup>
