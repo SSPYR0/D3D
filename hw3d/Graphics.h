@@ -6,8 +6,10 @@
 #include <vector>
 #include "DxgiInfoManager.h"
 
+
 class Graphics
 {
+	friend class Bindable;
 public:
 	class Exception : public MyException
 	{
