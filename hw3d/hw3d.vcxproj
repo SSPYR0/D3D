@@ -151,6 +151,7 @@
     <ClCompile Include="Bindable.cpp" />
     <ClCompile Include="Drawable.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
+    <ClCompile Include="InputLayer.cpp" />
     <ClCompile Include="MyException.cpp" />
     <ClCompile Include="MyTimer.cpp" />
     <ClCompile Include="dxerr.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowsMessageMap.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="GraphicsThrowMacro.h" />
     <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="InputLayer.h" />
     <ClInclude Include="MyException.h" />
     <ClInclude Include="MyTimer.h" />
     <ClInclude Include="MyWin.h" />
@@ -176,6 +179,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="PixelShader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowsMessageMap.h" />
