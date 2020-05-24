@@ -58,8 +58,12 @@ public:
 	~Graphics() = default;
 	void Flip();
 	void ClearBuffer( float red,float green,float blue ) noexcept;
-	void DrawTestTriangle(float angle,float x, float y);
+	void DrawIndexed(UINT count) noexcept(!IS_DEBUG);
+	void SetProjection(DirectX::FXMMATRIX proj) noexcept;
+	DirectX::XMMATRIX GetProjection() const noexcept;
+	//void DrawTestTriangle(float angle,float x, float y);
 private:
+	DirectX::XMMATRIX projection;
 #ifndef NDEBUG
 	DxgiInfoManager infoManager;
 #endif
