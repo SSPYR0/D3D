@@ -179,7 +179,9 @@
     <ClInclude Include="DrawableBase.h" />
     <ClInclude Include="GraphicsThrowMacro.h" />
     <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="IndexedTriangleList.h" />
     <ClInclude Include="InputLayer.h" />
+    <ClInclude Include="MathHelp.h" />
     <ClInclude Include="MyException.h" />
     <ClInclude Include="MyTimer.h" />
     <ClInclude Include="MyWin.h" />
