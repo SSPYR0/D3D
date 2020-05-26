@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Drawable">
       <UniqueIdentifier>{d9811de9-2fee-4d86-9ca9-c99721428572}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Drawable\Geometry">
+      <UniqueIdentifier>{ef4d7d7c-d5be-4e06-a2ed-3f2401bd57ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -185,8 +188,23 @@
     <ClInclude Include="MathHelp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cone.h">
+      <Filter>Header Files\Drawable\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Header Files\Drawable\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files\Drawable\Geometry</Filter>
+    </ClInclude>
     <ClInclude Include="IndexedTriangleList.h">
-      <Filter>Header Files\Drawable</Filter>
+      <Filter>Header Files\Drawable\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Prism.h">
+      <Filter>Header Files\Drawable\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\Drawable\Geometry</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
