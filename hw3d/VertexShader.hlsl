@@ -1,5 +1,4 @@
 
-
 cbuffer Cbuf {
 	 matrix transform;
 };
