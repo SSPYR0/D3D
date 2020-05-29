@@ -3,9 +3,9 @@
 // target Windows 7 or later
 #define _WIN32_WINNT 0x0601
 #include <sdkddkver.h>
-// The following #defines disable a bunch of unused windows stuff. If you 
-// get weird errors when trying to do some windows stuff, try removing some
-// (or all) of these defines (it will increase build time though).
+// The following #defines disable a bunch of unused windows stuff.
+
+#ifndef FULL_WIN
 #define WIN32_LEAN_AND_MEAN
 #define NOGDICAPMASKS
 #define NOSYSMETRICS
@@ -23,7 +23,6 @@
 #define NONLS
 #define NOMEMMGR
 #define NOMETAFILE
-#define NOMINMAX
 #define NOOPENFILE
 #define NOSCROLL
 #define NOSERVICE
@@ -40,7 +39,10 @@
 #define NOPROXYSTUB
 #define NOIMAGE
 #define NOTAPE
+#endif
 
+//NO MINMAX doesnt work with GDIPlus for some reason (?) add if back in using a diffrent texture loading method 
+//#define NOMINMAX
 #define STRICT
 
 #include <Windows.h>

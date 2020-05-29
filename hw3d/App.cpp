@@ -5,6 +5,10 @@
 #include "MathHelp.h"
 #include <algorithm>
 #include <memory>
+#include "Surface.h"
+#include "GDIManager.h"
+
+GDIManager gdipm;
 
 App::App()
 	:
@@ -55,6 +59,8 @@ App::App()
 	Generator g(wnd.Gfx());
 	drawables.reserve(nDrawables);
 	std::generate_n(std::back_inserter(drawables), nDrawables, g);
+
+	const auto s = Surface::FromFile("peepo.png");
 
 	//set the view
 	wnd.Gfx().SetProjection(DirectX::XMMatrixPerspectiveLH(1.0f, 3.0f / 4.0f, 0.5f, 40.0f));

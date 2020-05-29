@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Drawable\Geometry">
       <UniqueIdentifier>{ef4d7d7c-d5be-4e06-a2ed-3f2401bd57ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Imgs">
+      <UniqueIdentifier>{7eda955c-8b6e-4c1c-8228-ae449bcc9653}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -107,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="Pyramid.cpp">
       <Filter>Source Files\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +227,12 @@
     <ClInclude Include="Pyramid.h">
       <Filter>Header Files\Drawable</Filter>
     </ClInclude>
+    <ClInclude Include="GDIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXGetErrorDescription.inl">
@@ -243,5 +258,13 @@
     <FxCompile Include="ColorBlendPS.hlsl">
       <Filter>Shader</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="kappa50.png">
+      <Filter>Imgs</Filter>
+    </Image>
+    <Image Include="peepo.png">
+      <Filter>Imgs</Filter>
+    </Image>
   </ItemGroup>
 </Project>
