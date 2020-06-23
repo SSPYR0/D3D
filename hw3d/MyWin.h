@@ -41,7 +41,7 @@
 #define NOTAPE
 #endif
 
-//NO MINMAX doesnt work with GDIPlus for some reason (?) add if back in using a diffrent texture loading method 
+//NO MINMAX doesnt work with GDIPlus for some reason (?) add  back in if using a diffrent texture loading method 
 //#define NOMINMAX
 #define STRICT
 

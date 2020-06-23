@@ -93,10 +93,13 @@ public:
 		std::string note;
 	};
 public:
-	Surface(unsigned int width, unsigned int height, unsigned int pitch) noexcept;
+
+	//replacing pitch with width going forward 
+	//Surface(unsigned int width, unsigned int height, unsigned int pitch) noexcept;
 	Surface(unsigned int width, unsigned int height) noexcept;
 	Surface(Surface&& source) noexcept;
 	Surface(Surface&) = delete;
+	//idek what donor is in this context tbh
 	Surface& operator=(Surface&& donor) noexcept;
 	Surface& operator=(const Surface&) = delete;
 	~Surface();
@@ -114,6 +117,7 @@ public:
 private:
 	Surface(unsigned int width, unsigned int height, std::unique_ptr<Color[]> pBufferParam) noexcept;
 private:
+	//color buffer 
 	std::unique_ptr<Color[]> pBuffer;
 	unsigned int width;
 	unsigned int height;
