@@ -12,6 +12,7 @@ public:
 	int Go();
 private:
 	void DoFrame();
+	bool show_demo_window = true;
 private:
 	ImguiManager imgui;
 	Window wnd;

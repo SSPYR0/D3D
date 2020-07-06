@@ -11,8 +11,6 @@
 #include "SkinnedBox.h"
 
 #include "imgui.h"
-#include "imgui_impl_win32.h"
-#include "imgui_impl_dx11.h"
 
 GDIManager gdipm;
 
@@ -98,29 +96,34 @@ int App::Go()
 void App::DoFrame()
 {
 	const auto dt = timer.Mark();
-	wnd.Gfx().ClearBuffer(0.07f, 0.0f, 0.12f);
+	//wnd.Gfx().ClearBuffer(0.07f, 0.0f, 0.12f);
+
+	if (wnd.kbd.KeyIsPressed (VK_SPACE)) {
+		wnd.Gfx().DisableImgui();
+	}
+	else {
+		wnd.Gfx().EnableImgui();
+	}
+	wnd.Gfx().BeginFrame(0.07f, 0.0f, 0.12f);
+
 	for (auto& b : drawables)
 	{
 		b->Update(wnd.kbd.KeyIsPressed(VK_SPACE) ? 0.0f : dt);
 		b->Draw(wnd.Gfx());
 	}
 
-	// imgui stuff
-	ImGui_ImplDX11_NewFrame();
-	ImGui_ImplWin32_NewFrame();
-	ImGui::NewFrame();
 
-	static bool show_demo_window = true;
 	if (show_demo_window)
 	{
 		ImGui::ShowDemoWindow(&show_demo_window);
 	}
-	ImGui::Render();
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
+	
 	wnd.Gfx().Flip();
 }
 
 
 App::~App()
-{}
+{
+
+}
